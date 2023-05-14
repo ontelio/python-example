@@ -1,10 +1,10 @@
 import requests
 import time
 
+api_key = "hv07nvAeWJ3qvv9C6HPkI6l6NEIqb1T9aWk1uBYZ"
 
 def send_media():
     upload_key_endpoint = "https://yp1ypp2boj.execute-api.us-east-2.amazonaws.com/prod/redact/media"
-    api_key = "hv07nvAeWJ3qvv9C6HPkI6l6NEIqb1T9aWk1uBYZ"
     # call to get upload key
     upload_key_json_body = {
         "filename": "preamble.wav",
@@ -26,11 +26,28 @@ def send_media():
 
         with open("./files/preamble.wav", 'rb') as file:
             upload_file_response = requests.put(upload_url, data=file)
+            # TODO: Add error handling
 
-    # deal with return
+        # deal with return
+        poll_status(job_id)
 
 
-# Press the green button in the gutter to run the script.
+
+def poll_status(job_id):
+    status_endpoint = f"https://yp1ypp2boj.execute-api.us-east-2.amazonaws.com/prod/job/{job_id}"
+    start = time.time()
+    headers = {
+        "x-api-key": api_key
+    }
+    response = requests.get(status_endpoint, headers=headers)
+    response_json = response.json()
+    if response_json and response_json["status"] != "COMPLETED":
+        time.sleep(1.0 - ((time.time() - start) % 1.0))
+        poll_status(job_id)
+    else:
+        print(response_json["transcript"])
+
+
 if __name__ == '__main__':
     send_media()
 
