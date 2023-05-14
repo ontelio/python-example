@@ -1,8 +1,6 @@
 import requests
 import time
 
-url = 'https://dog.ceo/api/breeds/list/all'
-
 
 def send_media():
     upload_key_endpoint = "https://yp1ypp2boj.execute-api.us-east-2.amazonaws.com/prod/redact/media"
