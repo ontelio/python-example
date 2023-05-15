@@ -1,7 +1,7 @@
 import requests
 import time
 
-api_key = ""
+api_key = "API_KEY"
 
 
 # Send media to begin redaction process
