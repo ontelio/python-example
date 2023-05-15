@@ -1,36 +1,43 @@
 import requests
 import time
 
-api_key = "hv07nvAeWJ3qvv9C6HPkI6l6NEIqb1T9aWk1uBYZ"
+api_key = ""
 
 
-# send media to begin redaction process
+# Send media to begin redaction process
 def send_media():
     upload_key_endpoint = "https://yp1ypp2boj.execute-api.us-east-2.amazonaws.com/prod/redact/media"
     # call to get upload key
     upload_key_json_body = {
-        "filename": "preamble.wav",
-        "callbackUrl": "http://test.io/",
+        "filename": "preamble.wav",  # Name of file to be redacted
+        "callbackUrl": "http://test.io/",  # Callback URL to receive redacted transcript
         "language": "en-US",
-        "transcriptType": "VOCI"
+        "transcriptType": "VOCI",
+        "enableTranscriptRedaction": True,  # Toggle transcript redaction
+        "enableMediaRedaction": True,  # Toggle media file redaction
+        "entities": ["PII", "PHI", "PCI"]  # Types of entities to be redacted
     }
     headers = {
         "x-api-key": api_key
     }
 
-    upload_key_response = requests.post(upload_key_endpoint, json=upload_key_json_body, headers=headers)
-    upload_key_json = upload_key_response.json()
+    try:
+        upload_key_response = requests.post(upload_key_endpoint, json=upload_key_json_body, headers=headers)
+        upload_key_json = upload_key_response.json()
+    except Exception as e:
+        raise e
 
-    # call to upload media
+    # Call to upload media
     if "jobId" in upload_key_json and "uploadUrl" in upload_key_json:
         job_id = upload_key_json["jobId"]
         upload_url = upload_key_json["uploadUrl"]
 
-        with open("./files/preamble.wav", 'rb') as file:
-            upload_file_response = requests.put(upload_url, data=file)
-            # TODO: Add error handling
+        try:
+            with open("./files/preamble.wav", 'rb') as file:  # Path to file
+                requests.put(upload_url, data=file)
+        except Exception as e:
+            raise(e)
 
-        # deal with return
         poll_status(job_id)
 
 
@@ -41,14 +48,20 @@ def poll_status(job_id):
     headers = {
         "x-api-key": api_key
     }
-    response = requests.get(status_endpoint, headers=headers)
-    response_json = response.json()
-    if response_json and response_json["status"] != "COMPLETED":
 
-        time.sleep(1.0 - ((time.time() - start) % 1.0))
-        poll_status(job_id)
-    else:
-        print(response_json["transcript"])
+    try:
+        response = requests.get(status_endpoint, headers=headers)
+        response_json = response.json()
+        if response_json and response_json["status"] == "ERROR":
+            print("Error in redaction process")
+            return
+        if response_json and response_json["status"] != "COMPLETED":
+            time.sleep(1.0 - ((time.time() - start) % 1.0))
+            poll_status(job_id)
+        else:
+            print(response_json["transcript"])
+    except Exception as e:
+        raise e
 
 
 if __name__ == '__main__':
