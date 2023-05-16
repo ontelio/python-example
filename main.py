@@ -1,29 +1,39 @@
 import requests
 import time
 
-api_key = "API_KEY"
-
+API_KEY = "API_KEY"
 
 # Send media to begin redaction process
 def send_media():
+    """_summary_
+
+    Raises:
+        Exception: _description_
+        e: _description_
+    """
+
     upload_key_endpoint = "https://yp1ypp2boj.execute-api.us-east-2.amazonaws.com/prod/redact/media"
     # call to get upload key
     upload_key_json_body = {
         "filename": "preamble.wav",  # Name of file to be redacted
         "callbackUrl": "http://test.io/",  # Callback URL to receive redacted transcript
-        "language": "en-US",
-        "transcriptType": "VOCI",
+        "language": "en-US", # language that is being redacted in the transcript
+        "transcriptType": "VOCI", #type of transcript
         "enableTranscriptRedaction": True,  # Toggle transcript redaction
         "enableMediaRedaction": True,  # Toggle media file redaction
-        "entities": ["PII", "PHI", "PCI"]  # Types of entities to be redacted
+        "entities": ["PERSON", "LOCATION", "EMAIL"]  # Types of entities to be redacted
     }
+    # header object
     headers = {
-        "x-api-key": api_key
+        "x-api-key": API_KEY
     }
 
     try:
         upload_key_response = requests.post(upload_key_endpoint, json=upload_key_json_body, headers=headers)
         upload_key_json = upload_key_response.json()
+        if 'message' in upload_key_json:
+            if upload_key_json['message'] == "Forbidden":
+                raise Exception('Need API key - Forbidden')
     except Exception as e:
         raise e
 
@@ -42,11 +52,17 @@ def send_media():
 
 
 # Polls status until the redaction process is completed
-def poll_status(job_id):
+def poll_status(job_id = None):
+    """_summary_
+    Args:
+        job_id (int): The job ID of the job you are getting the status of.
+    Raises:
+        e: _description_
+    """
     status_endpoint = f"https://yp1ypp2boj.execute-api.us-east-2.amazonaws.com/prod/job/{job_id}"
     start = time.time()
     headers = {
-        "x-api-key": api_key
+        "x-api-key": API_KEY
     }
 
     try:
@@ -62,7 +78,6 @@ def poll_status(job_id):
             print(response_json["transcript"])
     except Exception as e:
         raise e
-
 
 if __name__ == '__main__':
     send_media()
