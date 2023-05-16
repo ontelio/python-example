@@ -2,6 +2,7 @@ import requests
 import time
 
 API_KEY = "API_KEY"
+API_URL = "https://yp1ypp2boj.execute-api.us-east-2.amazonaws.com/prod"
 
 # Send media to begin redaction process
 def send_media():
@@ -12,7 +13,7 @@ def send_media():
         e: _description_
     """
 
-    upload_key_endpoint = "https://yp1ypp2boj.execute-api.us-east-2.amazonaws.com/prod/redact/media"
+    upload_key_endpoint = f"{API_URL}/redact/media"
     # call to get upload key
     upload_key_json_body = {
         "filename": "preamble.wav",  # Name of file to be redacted
@@ -59,7 +60,7 @@ def poll_status(job_id = None):
     Raises:
         e: _description_
     """
-    status_endpoint = f"https://yp1ypp2boj.execute-api.us-east-2.amazonaws.com/prod/job/{job_id}"
+    status_endpoint = f"{API_URL}/job/{job_id}"
     start = time.time()
     headers = {
         "x-api-key": API_KEY
