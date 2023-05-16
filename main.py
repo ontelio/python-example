@@ -21,7 +21,7 @@ def send_media():
         "transcriptType": "VOCI", #type of transcript
         "enableTranscriptRedaction": True,  # Toggle transcript redaction
         "enableMediaRedaction": True,  # Toggle media file redaction
-        "entities": ["PERSON", "LOCATION", "EMAIL"]  # Types of entities to be redacted
+        "entities": ["PERSON", "LOCATION"]  # Types of entities to be redacted
     }
     # header object
     headers = {
@@ -48,7 +48,7 @@ def send_media():
         except Exception as e:
             raise(e)
 
-        poll_status(job_id)
+        poll_status(job_id=job_id)
 
 
 # Polls status until the redaction process is completed
@@ -66,14 +66,16 @@ def poll_status(job_id = None):
     }
 
     try:
+        print('checking the status of the job.')
         response = requests.get(status_endpoint, headers=headers)
         response_json = response.json()
         if response_json and response_json["status"] == "ERROR":
             print("Error in redaction process")
             return
         if response_json and response_json["status"] != "COMPLETED":
+            print(f'The current status of the job is {response_json["status"]}')
             time.sleep(1.0 - ((time.time() - start) % 1.0))
-            poll_status(job_id)
+            poll_status(job_id=job_id)
         else:
             print(response_json["transcript"])
     except Exception as e:
