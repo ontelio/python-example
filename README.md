@@ -1,0 +1,92 @@
+# Ontelio's Redaction API
+
+### Description
+This repository shows a basic example of how to upload a file to Ontelio's redaction engine and receive redacted media and / or transcript.
+
+### How to Use
+
+1. Replace **API_KEY** with your own Ontelio API key.
+2. Replace the media file with your own media file. Must be in .wav format.
+
+### How to customize the entities being redacted.
+The list of possible entities to redact are the following entities (Please use the exact capitalization and spelling)
+
+#### PII List
+* DATE_TIME 
+* EMAIL_ADDRESS
+* IP_ADDRESS
+* NRP
+* LOCATION
+* PERSON
+* PHONE_NUMBER
+* URL
+* US_DRIVER_LICENSE
+* US_PASSPORT
+* US_SSN
+* UK_NHS
+* NIF
+* IT_FISCAL_CODE
+* IT_DRIVER_LICENSE
+* IT_VAT_CODE
+* IT_PASSPORT
+* IT_IDENTITY_CARD
+* AU_ABN
+* AU_ACN
+* STATE
+* SPELLING
+
+#### PCI List
+* CREDIT_CARD
+* IBAN_CODE
+* US_BANK_NUMBER
+* US_ITIN
+* AU_TFN
+* CC_PARTIAL
+
+#### PHI List
+* MEDICAL_LICENSE
+* AU_MEDICARE
+* ACTIVITY
+* ADMINISTRATION
+* AGE
+* AREA
+* BIOLOGICAL_ATTRIBUTE
+* BIOLOGICAL_STRUCTURE
+* CLINICAL_EVENT
+* COLOR
+* COREFERENCE
+* DATE
+* DETAILED_DESCRIPTION
+* DIAGNOSTIC_PROCEDURE
+* DISEASE_DISORDER
+* DISTANCE
+* DOSAGE
+* DURATION
+* FAMILY_HISTORY
+* FREQUENCY
+* HEIGHT
+* HISTORY
+* LAB_VALUE
+* MASS
+* MEDICATION
+* NON[BIOLOGICAL](DETAILED_DESCRIPTION
+* NONBIOLOGICAL_LOCATION
+* OCCUPATION
+* OTHER_ENTITY
+* OTHER_EVENT
+* OUTCOME
+* PERSONAL [BACK](BIOLOGICAL_STRUCTURE
+* PERSONAL_BACKGROUND
+* QUALITATIVE_CONCEPT
+* QUANITATIVE_CONCEPT
+* SEVERITY
+* SEX
+* SHAPE
+* SIGN_SYMPTOM
+* SUBJECT
+* TEXTURE
+* THERAPEUTIC_PROCEDURE
+* TIME
+* VOLUME
+* WEIGHT
+
