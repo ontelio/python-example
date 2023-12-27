@@ -1,9 +1,61 @@
 import requests
 import time
+import json
 
 #API_KEY = "API_KEY"
 API_KEY = "QWT6MNRtbK1hDEySneLHGuHMr44M4vP91q1EXh7a"
 API_URL = "https://api.censori.dev.ontelio.ai"
+
+def redact_transcript():
+    """
+    Redacts a transcript only.
+
+    Raises:
+        e: json body is not in the format of a proper json.
+        e: error in the response body.
+    """
+    #open json file
+    try:
+        with open(f"./files/preamble.json", 'rb') as file:  # Path to file
+            _transcript = json.load(file)
+    except Exception as e:
+        raise e
+    
+    upload_key_endpoint = f"{API_URL}/redact"
+    # Call to get upload key
+    upload_key_json_body = {
+        "entities": [],
+        "callbackUrl": "http://test.io/",
+        "transcript": _transcript
+    }
+    # Header object
+    headers = {
+        "x-api-key": API_KEY
+    }
+
+    try:
+        upload_key_response = requests.post(upload_key_endpoint, json=upload_key_json_body, headers=headers)
+        if upload_key_response.status_code != "":
+            if upload_key_response.status_code == 403:
+                print('Need API key - Forbidden.')
+            if upload_key_response.status_code == 500:
+                upload_key_json = json.loads(upload_key_response.text)
+                print(upload_key_json['error'])
+            if upload_key_response.status_code == 200:
+                upload_key_json = json.loads(upload_key_response.text)
+                print(upload_key_json)
+                if 'jobId' in upload_key_json:
+                    _job_id = upload_key_json['jobId']
+                    # you can get the status of the job by polling or 
+                    # callback url defined in teh post request
+                    poll_status(job_id=_job_id)
+                else:
+                    print('missing job id key')
+        else:
+            print('dont know.')
+    except Exception as e:
+        print(e)
+        raise e
 
 # Send media to begin transcription and redaction process
 def transcribe_and_redact():
@@ -52,7 +104,6 @@ def transcribe_and_redact():
         # as defined in the post request above.
         poll_status(job_id=job_id)
 
-
 def poll_status(job_id = None):
     """ Polls job status until the redaction process is completed.
     Args:
@@ -84,5 +135,5 @@ def poll_status(job_id = None):
 
 
 if __name__ == '__main__':
-    transcribe_and_redact()
-
+    #transcribe_and_redact()
+    redact_transcript()
