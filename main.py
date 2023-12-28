@@ -3,7 +3,7 @@ import time
 import json
 
 #API_KEY = "API_KEY"
-API_KEY = "QWT6MNRtbK1hDEySneLHGuHMr44M4vP91q1EXh7a"
+API_KEY = "API_KEY"
 API_URL = "https://api.censori.dev.ontelio.ai"
 
 def redact_transcript():
@@ -24,7 +24,8 @@ def redact_transcript():
     upload_key_endpoint = f"{API_URL}/redact"
     # Call to get upload key
     upload_key_json_body = {
-        "entities": [],
+         #"entities": [] # you can leave the entities blank if you want to redact everything.
+        "entities": ["PERSON", "LOCATION"],  # Types of entities to be redacted
         "callbackUrl": "http://test.io/",
         "transcript": _transcript
     }
