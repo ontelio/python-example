@@ -16,7 +16,7 @@ def redact_transcript():
     """
     #open json file
     try:
-        with open(f"./files/preamble.json", 'rb') as file:  # Path to file
+        with open(f"./files/preamble.json", "rb") as file:  # Path to file
             _transcript = json.load(file)
     except Exception as e:
         raise e
@@ -25,6 +25,7 @@ def redact_transcript():
     # Call to get upload key
     upload_key_json_body = {
          #"entities": [] # you can leave the entities blank if you want to redact everything.
+        # the list of entities you can find in the README.md file or on our website at www.ontelio.com
         "entities": ["PERSON", "LOCATION"],  # Types of entities to be redacted
         "callbackUrl": "http://test.io/",
         "transcript": _transcript
@@ -38,22 +39,22 @@ def redact_transcript():
         upload_key_response = requests.post(upload_key_endpoint, json=upload_key_json_body, headers=headers)
         if upload_key_response.status_code != "":
             if upload_key_response.status_code == 403:
-                print('Need API key - Forbidden.')
+                print("Need API key - Forbidden.")
             if upload_key_response.status_code == 500:
                 upload_key_json = json.loads(upload_key_response.text)
-                print(upload_key_json['error'])
+                print(upload_key_json["error"])
             if upload_key_response.status_code == 200:
                 upload_key_json = json.loads(upload_key_response.text)
                 print(upload_key_json)
-                if 'jobId' in upload_key_json:
-                    _job_id = upload_key_json['jobId']
+                if "jobId" in upload_key_json:
+                    _job_id = upload_key_json["jobId"]
                     # you can get the status of the job by polling or 
                     # callback url defined in teh post request
                     poll_status(job_id=_job_id)
                 else:
-                    print('missing job id key')
+                    print("missing job id key")
         else:
-            print('dont know.')
+            print("dont know.")
     except Exception as e:
         print(e)
         raise e
@@ -84,9 +85,9 @@ def transcribe_and_redact():
     try:
         upload_key_response = requests.post(upload_key_endpoint, json=upload_key_json_body, headers=headers)
         upload_key_json = upload_key_response.json()
-        if 'message' in upload_key_json:
-            if upload_key_json['message'] == "Forbidden":
-                raise Exception('Need API key - Forbidden')
+        if "message" in upload_key_json:
+            if upload_key_json["message"] == "Forbidden":
+                raise Exception("Need API key - Forbidden")
     except Exception as e:
         raise e
 
@@ -96,7 +97,7 @@ def transcribe_and_redact():
         upload_url = upload_key_json["uploadUrl"]
 
         try:
-            with open("./files/preamble.wav", 'rb') as file:  # Path to file
+            with open("./files/preamble.wav", "rb") as file:  # Path to file
                 requests.put(upload_url, data=file)
         except Exception as e:
             raise e
@@ -119,14 +120,14 @@ def poll_status(job_id = None):
     }
 
     try:
-        print('Checking the status of the job.')
+        print("Checking the status of the job.")
         response = requests.get(status_endpoint, headers=headers)
         response_json = response.json()
-        if response_json and 'status' in response_json and response_json["status"] == "ERROR":
+        if response_json and "status" in response_json and response_json["status"] == "ERROR":
             print("Error in redaction process")
             return
-        if response_json and 'status' in response_json and response_json["status"] != "COMPLETED":
-            print(f'The current status of the job is {response_json["status"]}')
+        if response_json and "status" in response_json and response_json["status"] != "COMPLETED":
+            print(f"The current status of the job is {response_json['status']}")
             time.sleep(1.0 - ((time.time() - start) % 1.0))
             poll_status(job_id=job_id)
         else:
@@ -135,6 +136,6 @@ def poll_status(job_id = None):
         raise e
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     #transcribe_and_redact()
     redact_transcript()
