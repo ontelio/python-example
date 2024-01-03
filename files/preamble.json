@@ -1,0 +1,455 @@
+{
+  "text": " We, the people of the United States, in order to form a more perfect union, establish justice, ensure domestic tranquility, provide for the common defense, promote the general welfare, and secure the blessings of liberty to ourselves and our posterity, to ordain and establish this Constitution for the United States of America.",
+  "segments": [
+    {
+      "id": 0,
+      "seek": 0,
+      "start": 0.36,
+      "end": 5.6,
+      "text": " We, the people of the United States, in order to form a more perfect union, establish justice,",
+      "tokens": [
+        50364,
+        492,
+        11,
+        264,
+        561,
+        295,
+        264,
+        2824,
+        3040,
+        11,
+        294,
+        1668,
+        281,
+        1254,
+        257,
+        544,
+        2176,
+        11671,
+        11,
+        8327,
+        6118,
+        11,
+        50672
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.1444733632753973,
+      "compression_ratio": 1.607843137254902,
+      "no_speech_prob": 0.023112889379262924,
+      "confidence": 0.948,
+      "words": [
+        {
+          "text": "We,",
+          "start": 0.36,
+          "end": 0.54,
+          "confidence": 0.928
+        },
+        {
+          "text": "the",
+          "start": 0.66,
+          "end": 0.8,
+          "confidence": 0.995
+        },
+        {
+          "text": "people",
+          "start": 0.8,
+          "end": 1.1,
+          "confidence": 0.979
+        },
+        {
+          "text": "of",
+          "start": 1.1,
+          "end": 1.42,
+          "confidence": 0.957
+        },
+        {
+          "text": "the",
+          "start": 1.42,
+          "end": 1.54,
+          "confidence": 0.995
+        },
+        {
+          "text": "United",
+          "start": 1.54,
+          "end": 1.7,
+          "confidence": 0.984
+        },
+        {
+          "text": "States,",
+          "start": 1.7,
+          "end": 2.16,
+          "confidence": 0.997
+        },
+        {
+          "text": "in",
+          "start": 2.52,
+          "end": 2.6,
+          "confidence": 0.903
+        },
+        {
+          "text": "order",
+          "start": 2.6,
+          "end": 2.82,
+          "confidence": 0.998
+        },
+        {
+          "text": "to",
+          "start": 2.82,
+          "end": 2.98,
+          "confidence": 0.99
+        },
+        {
+          "text": "form",
+          "start": 2.98,
+          "end": 3.22,
+          "confidence": 0.989
+        },
+        {
+          "text": "a",
+          "start": 3.22,
+          "end": 3.38,
+          "confidence": 0.973
+        },
+        {
+          "text": "more",
+          "start": 3.38,
+          "end": 3.5,
+          "confidence": 0.984
+        },
+        {
+          "text": "perfect",
+          "start": 3.5,
+          "end": 3.78,
+          "confidence": 0.968
+        },
+        {
+          "text": "union,",
+          "start": 3.78,
+          "end": 4.18,
+          "confidence": 0.892
+        },
+        {
+          "text": "establish",
+          "start": 4.56,
+          "end": 5.08,
+          "confidence": 0.683
+        },
+        {
+          "text": "justice,",
+          "start": 5.08,
+          "end": 5.6,
+          "confidence": 0.961
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "seek": 0,
+      "start": 6.02,
+      "end": 10.78,
+      "text": " ensure domestic tranquility, provide for the common defense, promote the general welfare,",
+      "tokens": [
+        50672,
+        5586,
+        10939,
+        17640,
+        1140,
+        11,
+        2893,
+        337,
+        264,
+        2689,
+        7654,
+        11,
+        9773,
+        264,
+        2674,
+        17788,
+        11,
+        50924
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.1444733632753973,
+      "compression_ratio": 1.607843137254902,
+      "no_speech_prob": 0.023112889379262924,
+      "confidence": 0.975,
+      "words": [
+        {
+          "text": "ensure",
+          "start": 6.02,
+          "end": 6.32,
+          "confidence": 0.976
+        },
+        {
+          "text": "domestic",
+          "start": 6.32,
+          "end": 6.74,
+          "confidence": 0.998
+        },
+        {
+          "text": "tranquility,",
+          "start": 6.74,
+          "end": 7.46,
+          "confidence": 0.932
+        },
+        {
+          "text": "provide",
+          "start": 7.78,
+          "end": 8.24,
+          "confidence": 0.994
+        },
+        {
+          "text": "for",
+          "start": 8.24,
+          "end": 8.46,
+          "confidence": 0.999
+        },
+        {
+          "text": "the",
+          "start": 8.46,
+          "end": 8.58,
+          "confidence": 0.995
+        },
+        {
+          "text": "common",
+          "start": 8.58,
+          "end": 8.8,
+          "confidence": 0.987
+        },
+        {
+          "text": "defense,",
+          "start": 8.8,
+          "end": 9.18,
+          "confidence": 0.915
+        },
+        {
+          "text": "promote",
+          "start": 9.6,
+          "end": 9.84,
+          "confidence": 0.991
+        },
+        {
+          "text": "the",
+          "start": 9.84,
+          "end": 10.12,
+          "confidence": 0.998
+        },
+        {
+          "text": "general",
+          "start": 10.12,
+          "end": 10.34,
+          "confidence": 0.967
+        },
+        {
+          "text": "welfare,",
+          "start": 10.34,
+          "end": 10.78,
+          "confidence": 0.992
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "seek": 0,
+      "start": 11.1,
+      "end": 15.82,
+      "text": " and secure the blessings of liberty to ourselves and our posterity, to ordain and establish",
+      "tokens": [
+        50924,
+        293,
+        7144,
+        264,
+        19296,
+        295,
+        22849,
+        281,
+        4175,
+        293,
+        527,
+        17171,
+        507,
+        11,
+        281,
+        4792,
+        491,
+        293,
+        8327,
+        51158
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.1444733632753973,
+      "compression_ratio": 1.607843137254902,
+      "no_speech_prob": 0.023112889379262924,
+      "confidence": 0.952,
+      "words": [
+        {
+          "text": "and",
+          "start": 11.1,
+          "end": 11.22,
+          "confidence": 0.999
+        },
+        {
+          "text": "secure",
+          "start": 11.22,
+          "end": 11.48,
+          "confidence": 0.997
+        },
+        {
+          "text": "the",
+          "start": 11.48,
+          "end": 11.66,
+          "confidence": 0.998
+        },
+        {
+          "text": "blessings",
+          "start": 11.66,
+          "end": 11.94,
+          "confidence": 0.969
+        },
+        {
+          "text": "of",
+          "start": 11.94,
+          "end": 12.2,
+          "confidence": 0.999
+        },
+        {
+          "text": "liberty",
+          "start": 12.2,
+          "end": 12.5,
+          "confidence": 0.973
+        },
+        {
+          "text": "to",
+          "start": 12.5,
+          "end": 12.84,
+          "confidence": 0.985
+        },
+        {
+          "text": "ourselves",
+          "start": 12.84,
+          "end": 13.24,
+          "confidence": 0.998
+        },
+        {
+          "text": "and",
+          "start": 13.24,
+          "end": 13.42,
+          "confidence": 0.934
+        },
+        {
+          "text": "our",
+          "start": 13.42,
+          "end": 13.58,
+          "confidence": 0.989
+        },
+        {
+          "text": "posterity,",
+          "start": 13.58,
+          "end": 14.24,
+          "confidence": 0.994
+        },
+        {
+          "text": "to",
+          "start": 14.72,
+          "end": 14.82,
+          "confidence": 0.528
+        },
+        {
+          "text": "ordain",
+          "start": 14.82,
+          "end": 15.2,
+          "confidence": 0.996
+        },
+        {
+          "text": "and",
+          "start": 15.2,
+          "end": 15.36,
+          "confidence": 0.995
+        },
+        {
+          "text": "establish",
+          "start": 15.36,
+          "end": 15.82,
+          "confidence": 0.993
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "seek": 0,
+      "start": 15.96,
+      "end": 18.42,
+      "text": " this Constitution for the United States of America.",
+      "tokens": [
+        51158,
+        341,
+        14505,
+        337,
+        264,
+        2824,
+        3040,
+        295,
+        3374,
+        13,
+        51292
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.1444733632753973,
+      "compression_ratio": 1.607843137254902,
+      "no_speech_prob": 0.023112889379262924,
+      "confidence": 0.941,
+      "words": [
+        {
+          "text": "this",
+          "start": 15.96,
+          "end": 16.14,
+          "confidence": 0.994
+        },
+        {
+          "text": "Constitution",
+          "start": 16.14,
+          "end": 16.72,
+          "confidence": 0.637
+        },
+        {
+          "text": "for",
+          "start": 16.72,
+          "end": 17.1,
+          "confidence": 0.989
+        },
+        {
+          "text": "the",
+          "start": 17.1,
+          "end": 17.24,
+          "confidence": 0.998
+        },
+        {
+          "text": "United",
+          "start": 17.24,
+          "end": 17.46,
+          "confidence": 0.994
+        },
+        {
+          "text": "States",
+          "start": 17.46,
+          "end": 17.84,
+          "confidence": 0.999
+        },
+        {
+          "text": "of",
+          "start": 17.84,
+          "end": 18.1,
+          "confidence": 0.996
+        },
+        {
+          "text": "America.",
+          "start": 18.1,
+          "end": 18.42,
+          "confidence": 0.998
+        }
+      ]
+    }
+  ],
+  "language": "en",
+  "transcriber": "Ontelio, Inc."
+}
