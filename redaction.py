@@ -1,14 +1,13 @@
 import requests
 import json
 
-# API_KEY = "QWT6MNRtbK1hDEySneLHGuHMr44M4vP91q1EXh7a"
-API_KEY = "u3Z8kJFHYL4FberYCkeRf6MzcLCFUaFu9L88HAV7"
+API_KEY = "<INSERT API KEY>"
 API_URL = "https://api.censori.ontelio.ai"
 FILENAME = "preamble.json"
 LANGUAGE = "en"
 ENTITIES = []
 # ENTITIES = ["PERSON", "LOCATION"]
-CALLBACK = "https://webhook-test.com/e6a068b405863d7023fce5fe85ca4296"
+CALLBACK = "<INSERT CALLBACK URL>"
 
 
 def send_media() -> str:
