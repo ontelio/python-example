@@ -54,17 +54,20 @@ def send_media() -> str:
             elif upload_key_response.status_code == 403:
                 raise Exception("Need API key - Forbidden")
             else:
-                upload_key_json = json.loads(upload_key_response.text)
-                raise Exception(upload_key_json["error"])
+                text:str = upload_key_response.text
+                raise Exception(text)
         else:
             raise Exception("Status Code unknown")
     except Exception as e:
-        print(e)
         raise e
 
 
 if __name__ == "__main__":
-    print("sent. waiting for response...")
-    job_id: str = send_media()
-    print(f"job id: {job_id}")
-    print("done")
+    try:
+        print("sent. waiting for response...")
+        job_id: str = send_media()
+        print(f"job id: {job_id}")
+        print("done")
+    except Exception as e:
+        print(e)
+        print("failed")

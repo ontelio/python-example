@@ -49,10 +49,13 @@ def send_media() -> str:
         else:
             raise Exception("Missing job ID or upload URL")
     except Exception as e:
-        print(e)
         raise e
 
 if __name__ == "__main__":
-    print("sent. waiting for response...")
-    job_id:str = send_media()
-    print(f"job id: {job_id}")
+    try:
+        print("sent. waiting for response...")
+        job_id:str = send_media()
+        print(f"job id: {job_id}")
+    except Exception as e:
+        print(e)
+        print("failed")
