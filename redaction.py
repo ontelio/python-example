@@ -11,7 +11,20 @@ CALLBACK = "<INSERT CALLBACK URL>"
 
 
 def send_media() -> str:
-    # open json file
+    """
+    Sends media to Ontelio's Redaction Engine. Input parameters in the form of json body.
+
+    Raises:
+        Exception: Missing a Job ID
+        Exception: Missing an API key
+        Exception: Generic exception during key retrieval or media upload process
+        Exception: Status Code unknown
+        e: Exception during key retrieval or media upload process
+
+    Returns:
+        str: Job ID of the redaction job
+    """
+
     try:
         with open(f"./files/{FILENAME}", "rb") as file:  # Path to file
             _transcript = json.load(file)
