@@ -6,7 +6,7 @@ This repository shows a basic example of how to upload a file to Ontelio's redac
 ### How to Use
 
 1. Replace **API_KEY** with your own Ontelio API key.
-2. Replace the media file with your own media file. Must be in .wav format.
+2. Replace the media file with your own media file. Must be in .wav or .mp3 format.
 
 ### How to customize the entities being redacted.
 The list of possible entities to redact are the following entities (Please use the exact capitalization and spelling)
