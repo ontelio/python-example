@@ -46,15 +46,3 @@ To use Ontelio:
 
 **Note:** All Ontelio API results are returned via **webhooks**, including a `jobId` for tracking.
 
----
-
-## Ontelio REST API
-
-### Authentication
-
-- Use the header field `x-api-key` with your assigned API key.
-
-### Base URL
-
-
-
