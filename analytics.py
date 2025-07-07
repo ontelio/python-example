@@ -6,7 +6,7 @@ API_URL = "https://api.censori.ontelio.ai"
 FILENAME = "preamble.json"
 LANGUAGE = "en"
 CALLBACK = "<INSERT CALLBACK URL>"
-OPERATION = "SENTIMENT"  # QUESTION, SUMMARIZE, SENTIMENT, EMOTION, OnteLLM, PROSODY
+OPERATION = "SENTIMENT"  # "SENTIMENT", "EMOTION", "PROSODY", "CALL_REASON", "PRODUCT", "QUESTION", "SUMMARIZE", "ONTELLM", "CONFIDENCE"
 OPTIONS = {
     "prompt": "What were the speakers talking about?"
 }  # ONLY use this for OnteLLM
