@@ -30,7 +30,7 @@ Ontelio offers APIs for:
 To use Ontelio:
 
 - **Transcription/Diarization:**  
-  Endpoint: `{BASE_URL}/transcription`
+  Endpoint: `{BASE_URL}/transcribe`
 
 - **Analytics (Sentiment, Emotion, Prosody, etc.):**  
   Endpoint: `{BASE_URL}/analytics`
