@@ -37,7 +37,7 @@ To use Ontelio:
 
 ### API Call Order
 
-1. **First:** Call the `/transcription` endpoint with the audio file.
+1. **First:** Call the `/transcribe` endpoint with the audio file.
 2. **Then:** Use the JSON response from transcription as input for any of the following analytics calls:
    - Sentiment
    - Emotion
